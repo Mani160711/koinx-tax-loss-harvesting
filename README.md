@@ -24,6 +24,14 @@ A high-performance, pixel-perfect production-ready React web application designe
 
 ---
 
+## 📸 Screenshots
+
+Here is a preview of the high-fidelity dynamic dashboard in action:
+
+![KoinX Tax Loss Harvesting Dashboard Preview](./src/assets/hero.png)
+
+---
+
 ## 📂 Project Structure
 
 ```text
