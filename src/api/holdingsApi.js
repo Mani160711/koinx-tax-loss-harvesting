@@ -1,8 +1,3 @@
-/**
- * Holdings Mock API
- * Returns exact mock data for cryptocurrency holdings.
- * Excludes forbidden assets: BTC, ETH, SOL, ADA, DOT, LINK, AVAX.
- */
 export const fetchHoldings = () => {
   return new Promise((resolve) => {
     setTimeout(() => {

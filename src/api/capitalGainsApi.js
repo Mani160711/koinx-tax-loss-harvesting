@@ -1,7 +1,3 @@
-/**
- * Capital Gains Mock API
- * Returns the exact pre-harvest capital gains from the assignment response.
- */
 export const fetchCapitalGains = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
