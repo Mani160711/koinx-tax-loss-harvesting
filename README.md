@@ -6,7 +6,7 @@ A lightweight React web application built with Vite and Tailwind CSS to simulate
 
 Here is a preview of the main dashboard interface in action:
 
-![KoinX Tax Loss Harvesting Dashboard Preview](./src/assets/hero.png)
+![KoinX Tax Loss Harvesting Dashboard Preview](./src/assets/Screenshot%202026-05-27%20171100.jpg)
 
 ### Dashboard States Explanation
 
