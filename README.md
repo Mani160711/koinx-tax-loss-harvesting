@@ -23,6 +23,37 @@ The dashboard features three primary visual and functional states designed to gu
 
 ---
 
+### Step-by-Step Mathematical Walkthrough of Selected State
+
+Using the exact numbers from the active multi-selection state, here is how the calculations take place:
+
+#### 1. Baseline Pre-Harvest Capital Gains (Starting point)
+*   **Short-Term Capital Gains (STCG):**
+    *   Realized Profits = Rs 70,200.88
+    *   Realized Losses = Rs 1,548.53
+    *   Net STCG = Rs 70,200.88 - Rs 1,548.53 = Rs 68,652.35
+*   **Long-Term Capital Gains (LTCG):**
+    *   Realized Profits = Rs 5,020.00
+    *   Realized Losses = Rs 3,050.00
+    *   Net LTCG = Rs 5,020.00 - Rs 3,050.00 = Rs 1,970.00
+*   **Total Pre-Harvest Gains:** Rs 68,652.35 + Rs 1,970.00 = Rs 70,622.35
+
+#### 2. Selected Simulation State (After-Harvest Card)
+When multiple assets are selected, the simulated realized profits and losses rise accordingly:
+*   **Simulated Short-Term (STCG):**
+    *   Simulated Profits = Rs 1,69,700.88 (increased by Rs 99,500.00 from baseline)
+    *   Simulated Losses = Rs 52,048.53 (increased by Rs 50,500.00 from baseline)
+    *   **Net STCG** = Rs 1,69,700.88 - Rs 52,048.53 = **Rs 1,17,652.35**
+*   **Simulated Long-Term (LTCG):**
+    *   Simulated Profits = Rs 44,020.00 (increased by Rs 39,000.00 from baseline)
+    *   Simulated Losses = Rs 60,050.00 (increased by Rs 57,000.00 from baseline)
+    *   **Net LTCG** = Rs 44,020.00 - Rs 60,050.00 = **-Rs 16,030.00**
+*   **Post-Harvest Effective Gains:** 
+    $$\text{Effective Gains} = \text{Net STCG} + \text{Net LTCG}$$
+    $$\text{Effective Gains} = \text{Rs 1,17,652.35} + \text{(-Rs 16,030.00)} = \mathbf{\text{Rs 101,622.35}}$$
+
+---
+
 ## Key Features
 
 *   **Real-time Calculations:** Instantly recalculates net short-term gains, long-term gains, and potential savings as you check or uncheck assets.
