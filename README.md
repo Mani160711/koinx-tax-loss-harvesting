@@ -2,34 +2,47 @@
 
 A lightweight React web application built with Vite and Tailwind CSS to simulate cryptocurrency tax-loss harvesting. It calculates potential tax savings in real-time as you select assets from your portfolio to sell.
 
-## 📸 Screenshots
+## Screenshots and Interface Explanation
 
-Here is a preview of the main dashboard interface:
+Here is a preview of the main dashboard interface in action:
 
 ![KoinX Tax Loss Harvesting Dashboard Preview](./src/assets/hero.png)
 
+### Dashboard States Explanation
+
+The dashboard features three primary visual and functional states designed to guide the user:
+
+1. **Pre-Harvest Baseline (White Card):** 
+   This card shows the user's starting realized profits, losses, and net capital gains as returned directly by the API. It is styled with a white background and acts as the constant reference point for calculations.
+
+2. **After-Harvest Simulation (Blue Gradient Card):** 
+   Styled with a modern blue-to-deep-blue gradient, this card updates dynamically in less than a millisecond. When you select assets to simulate selling, the calculator adjusts the profits and losses, displaying your effective gains.
+
+3. **Tax Savings Banner (Green Gradient):** 
+   If your checked assets generate a positive tax benefit (by realizing losses to offset gains), a prominent green-gradient banner slides open at the top. It calculates and celebrates your net estimated savings. If no savings are realized, the banner automatically slides closed to keep the workspace clean.
+
 ---
 
-## 🚀 Key Features
+## Key Features
 
-*   **Real-time Calculations:** Instantly recalculates net short-term gains, long-term gains, and potential savings as you check/uncheck assets.
+*   **Real-time Calculations:** Instantly recalculates net short-term gains, long-term gains, and potential savings as you check or uncheck assets.
 *   **Dynamic Savings Banner:** A celebratory banner that automatically appears when selected assets yield positive tax savings.
-*   **Persistent Selections:** Your checkbox selections are persisted to `localStorage` so they aren't lost when you refresh the page.
-*   **Indian Rupee formatting:** Currency is fully localized in INR (e.g. ₹70,200.88).
-*   **Optimized Performance:** Optimized component renders using standard React performance hooks (`useMemo`, `useCallback`, `React.memo`).
-*   **Fallback States:** Shimmer skeletons are rendered during data loading, and clean fallback states handle empty data or errors.
+*   **Persistent Selections:** Your checkbox selections are persisted to localStorage so they are not lost when you refresh the page.
+*   **Indian Rupee Formatting:** Currency is fully localized in INR (e.g. Rs 70,200.88) using the standard en-IN formatting.
+*   **Optimized Performance:** Optimized component renders using standard React performance hooks (useMemo, useCallback, React.memo) to ensure high-frequency updates and smooth table scrolling.
+*   **Fallback States:** Shimmer skeletons are rendered during data loading, and clean fallback states handle empty data or connection errors.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 *   **Core:** React 19 (JavaScript) + Vite 8
 *   **Styling:** Tailwind CSS v4
-*   **Icons:** React Icons (`react-icons/fi`)
+*   **Icons:** React Icons (Feather Icons pack)
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 src/
@@ -64,9 +77,9 @@ src/
 
 ---
 
-## ⚙️ Setup & Installation
+## Setup and Installation
 
-Make sure you have Node.js (version 18+) installed.
+Make sure you have Node.js (version 18 or higher) installed.
 
 ### 1. Install dependencies
 ```bash
@@ -77,7 +90,7 @@ npm install
 ```bash
 npm run dev
 ```
-Open **[http://localhost:5173](http://localhost:5173)** in your browser.
+Open http://localhost:5173 in your browser.
 
 ### 3. Build for production
 ```bash
@@ -86,7 +99,7 @@ npm run build
 
 ---
 
-## 🧠 Business Logic & Formulas
+## Business Logic and Formulas
 
 ### Pre-Harvest Calculations
 $$\text{Net STCG} = \text{STCG Profits} - \text{STCG Losses}$$
@@ -95,19 +108,19 @@ $$\text{Total Realised Gains} = \text{Net STCG} + \text{Net LTCG}$$
 
 ### Post-Harvest Simulation (For Checked Assets)
 *   **For selected Short-Term positions:**
-    *   If `gain > 0` $\rightarrow$ `STCG Profits` increases by `gain`
-    *   If `gain <= 0` $\rightarrow$ `STCG Losses` increases by `|gain|`
+    *   If `gain > 0` -> `STCG Profits` increases by `gain`
+    *   If `gain <= 0` -> `STCG Losses` increases by `|gain|`
 *   **For selected Long-Term positions:**
-    *   If `gain > 0` $\rightarrow$ `LTCG Profits` increases by `gain`
-    *   If `gain <= 0` $\rightarrow$ `LTCG Losses` increases by `|gain|`
+    *   If `gain > 0` -> `LTCG Profits` increases by `gain`
+    *   If `gain <= 0` -> `LTCG Losses` increases by `|gain|`
 
 $$\text{Post-Harvest Effective Gains} = \text{Adjusted Net STCG} + \text{Adjusted Net LTCG}$$
 $$\text{Tax Savings} = \text{Pre-Harvest Total Realised} - \text{Post-Harvest Effective}$$
 
 ---
 
-## 🔮 Core Assumptions
+## Core Assumptions
 
-1.  **Mock Asset Data:** To avoid forbidden assets like BTC/ETH/SOL/ADA, we populate the simulator with 8 alternative coins: XRP, BNB, MATIC, DOGE, TRX, SHIB, UNI, and NEAR.
-2.  **API Simulated Latency:** Both mock APIs return standard Javascript Promises wrapped in a `setTimeout` delay of exactly **800ms** to simulate server communication delay.
-3.  **Local Storage:** Selection states are synced to `localStorage` under the key `koinx_selected_holdings` so they persist through refreshes.
+1.  **Mock Asset Data:** To avoid forbidden assets like BTC, ETH, SOL, ADA, DOT, LINK, and AVAX, we populate the simulator with 8 alternative coins: XRP, BNB, MATIC, DOGE, TRX, SHIB, UNI, and NEAR.
+2.  **API Simulated Latency:** Both mock APIs return standard Javascript Promises wrapped in a setTimeout delay of exactly 800ms to simulate server communication delay.
+3.  **Local Storage:** Selection states are synced to localStorage under the key koinx_selected_holdings so they persist through refreshes.
